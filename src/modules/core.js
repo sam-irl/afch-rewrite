@@ -1411,7 +1411,7 @@
 
 			AFCH.api.get( request )
 				.done( function ( data ) {
-					if ( data.query.pages ) {
+					if ( data.query.pages && !data.query.pages[ "-1" ] ) {
 						var pageKey = Object.keys( data.query.pages )[ 0 ],
 							pagesCount = data.query.pages[ pageKey ].categoryinfo.pages;
 						$( '#' + countSpanId ).text( ' (' + pagesCount + ')' );
